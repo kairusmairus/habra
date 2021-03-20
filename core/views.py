@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from .models import * #импорт из моделей чтобы он знал откуда Article
+from django.contrib.auth.models import User
 # Create your views here.
 def articles(request):
     articles = Article.objects.all() # 
@@ -13,9 +14,13 @@ def authors(request):
         request, "authors.html", {"authors": authors })
 
 def article(request, id):
-    articles = Articles.objects.get(id=id)
+    article = Articles.objects.get(id=id)
     return render(
         request, "article.html", {"article": article })  
 
 def about(request):
-    return render(request, "about.html")          
+    return render(request, "about.html")  
+
+def profile(request):
+    
+     return render(request, "profile.html")              

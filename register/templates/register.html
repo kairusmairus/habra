@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block title %}Создать аккаунт{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+    <h3>Заполните форму для регистрации: </h3>
+    <form method="POST" class="form-group">
+	{% csrf_token %}
+	{{ form|crispy }}
+	<button type="submit" class="btn btn-success">Зарегистритроваться</button>
+    </form>
+{% endblock %}
