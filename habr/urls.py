@@ -25,4 +25,4 @@ urlpatterns = [
     path("article/<int:id>/", article, name="article"),
     path('authors/', authors, name='authors'),
     path("about/", about, name="about"),
-] + static(settings.STATIC_URL, documetn_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
