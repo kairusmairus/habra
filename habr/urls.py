@@ -23,10 +23,16 @@ from register import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', articles, name="articles"),
-    path("article/<int:id>/", article, name="article"),
+    path("article/<int:id>/", article_page, name="article"),
     path('authors/', authors, name='authors'),
     path("about/", about, name="about"),
     path("register/", v.register, name="register"),
     path('', include("django.contrib.auth.urls")),
     path("profile/", profile, name="profile"),
+    path("article/<int:pk>/edit/", edit_article, name='article-edit'),
+    path("article/add/", add_article, name="article-add"),
+    path("article/<int:id>/delete", delete_article, name='article-delete'),
+    path("article/<int:id>/hide", hide_article, name='article-hide'),
+    path("library/", include("library.urls")),# library app
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

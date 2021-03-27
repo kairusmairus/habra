@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block page_content %}
+<div class="form-group">
+
+    <h1>New book</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary" >Save</button>
+    </form>
+
+</div>    
+{% endblock %}

@@ -19,6 +19,10 @@ class Article(models.Model):
         related_name="readed_articles",
         blank=True,
     )
+    views = models.IntegerField(default=0, verbose_name="Просмотры: ")
+    created_date = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
     def __str__(self):
         return self.title
 

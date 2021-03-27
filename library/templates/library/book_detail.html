@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+
+{% block page_content %}
+
+        <div>
+            {% for b in libitems %}
+
+            
+            
+       
+
+            <div>
+
+                <div>
+                    <p>Автор: {{ b.author  }}</p>
+
+                    <p>Название: {{ b.title }}    Язык: {{ b.language }}</p>
+
+                    <p>Написано: {{ b.written_date }}</p>
+
+                    <p>Страниц: {{ b.pages_num }}</p>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+        </div>
+
+{% endblock %}
