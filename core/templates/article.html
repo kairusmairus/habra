@@ -11,13 +11,16 @@
         Автор:
         <ul>
             <li>Псевдоним - {{ article.author.nik }}</li>
-            <li>Логин - {{ article.author.user.username }}</li>
+            <li>Пользователь - {{ article.author.user.username }}</li>
         </ul>
 
     </p>
-    <a href="{% url 'article-edit' article.id %}">Редактировать</a>
-    <br>
-    <a href="{% url 'article-delete' article.id %}">Удалить</a>
-    <br>
-    <a href="{% url 'article-hide' article.id %}">Скрыть</a>
+{% endblock %}
+{% block content_sidebar %}
+<br>
+    <a href="{% url 'article-edit' article.id %}" class="btn btn-light" role="button" aria-disabled="true">Редактировать <i class="fa fa-edit" aria-hidden="true"></i></a>
+    <br><br>
+    <a href="{% url 'article-delete' article.id %}" class="btn btn-light" role="button" aria-disabled="true">Удалить <i class="fa fa-recycle" aria-hidden="true"></i></a>
+    <br><br>
+    <a href="{% url 'article-hide' article.id %}" class="btn btn-light" role="button" aria-disabled="true">Скрыть <i class="fa fa-eye-slash" aria-hidden="true"></i></a>
 {% endblock %}

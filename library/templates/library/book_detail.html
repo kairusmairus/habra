@@ -1,17 +1,15 @@
-{% extends "main.html" %}
+{% extends "index.html" %}
 
-{% block page_content %}
+{% block content %}
 
         <div>
+            <br>
+            <h2>Подробнее о книге:</h2>
             {% for b in libitems %}
-
-            
-            
-       
-
             <div>
+                
 
-                <div>
+                
                     <p>Автор: {{ b.author  }}</p>
 
                     <p>Название: {{ b.title }}    Язык: {{ b.language }}</p>
@@ -19,8 +17,9 @@
                     <p>Написано: {{ b.written_date }}</p>
 
                     <p>Страниц: {{ b.pages_num }}</p>
+                    <p>Добавил: <span style="color:blue;"> {{ b.added_by }}</span></p>
 
-                </div>
+                
 
             </div>
 
@@ -28,4 +27,8 @@
 
         </div>
 
+{% endblock %}
+{% block content_sidebar %}
+<br>
+<button type="button" class="btn btn-light">Скачать  <i class="fa fa-download" aria-hidden="true"></i></button>
 {% endblock %}

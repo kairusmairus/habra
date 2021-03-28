@@ -16,18 +16,18 @@ def all_books(request):
 
 
 
-# def book_detail(request, pk):
+def book_detail(request, pk):
     
-#     book_objs = Book.objects.filter(id=pk) #когда было pk=id не работало
-#     context = {
-#         "libitems" : book_objs,
-#         # "authors" : author_obj,
-#     }
+    book_objs = Book.objects.filter(id=pk) #когда было pk=id не работало
+    context = {
+        "libitems" : book_objs,
+        # "authors" : author_obj,
+    }
 
-#     return render(request, "library/book_detail.html", context)
+    return render(request, "library/book_detail.html", context)
 
  
 
-# def post_new(request):
-#     form = PostForm()
-#     return render(request, 'library/post_new.html', {'form': form})
+def post_new(request):
+    form = PostForm()
+    return render(request, 'library/post_new.html', {'form': form})

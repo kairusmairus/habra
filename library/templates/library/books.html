@@ -18,3 +18,9 @@
         </div>
 
 {% endblock %}
+
+{% block content_sidebar %}
+<br>
+<a href="{% url 'post_new' %}" class="btn btn-light" role="button" aria-disabled="true">Добавить книгу <i class="fa fa-upload" aria-hidden="true"></i></a>
+
+{% endblock %}
