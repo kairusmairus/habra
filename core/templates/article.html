@@ -1,8 +1,11 @@
 {% extends 'index.html' %}
 {% load static %}
+{% block title %}
+    {{article.title}}
+{% endblock %}
 {% block content %}
     <h1>{{article.title}}</h1>
-    <div>{{article.text}}</div>
+    <div>{{article.text|safe}}</div>
     <br>
     <p>Просмотры: {{article.views}}</p>
     <p>Создано: {{article.created_date}}</p>
@@ -13,6 +16,10 @@
             <li>Псевдоним - {{ article.author.nik }}</li>
             <li>Пользователь - {{ article.author.user.username }}</li>
         </ul>
+        {% if article.picture %}
+        <img src="{{ article.picture.url }}" width="400px">
+        <br>
+    {% endif %}
 
     </p>
 {% endblock %}
@@ -20,7 +27,7 @@
 <br>
     <a href="{% url 'article-edit' article.id %}" class="btn btn-light" role="button" aria-disabled="true">Редактировать <i class="fa fa-edit" aria-hidden="true"></i></a>
     <br><br>
-    <a href="{% url 'article-delete' article.id %}" class="btn btn-light" role="button" aria-disabled="true">Удалить <i class="fa fa-recycle" aria-hidden="true"></i></a>
+    <a href="{% url 'article-delete' article.id %}" class="btn btn-light" role="button" aria-disabled="true">Удалить <i class="fa fa-trash" aria-hidden="true"></i></a>
     <br><br>
     <a href="{% url 'article-hide' article.id %}" class="btn btn-light" role="button" aria-disabled="true">Скрыть <i class="fa fa-eye-slash" aria-hidden="true"></i></a>
 {% endblock %}

@@ -1,10 +1,17 @@
 {% extends 'index.html' %}
 
-{% block content %}
+{% block title %}
+    Добавить статью
+{% endblock %}
 
+{% block content %}
+<br>
+<h3>Добавить статью: </h3>
 <div>
     <form method="POST">
         {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
         <input type="text" placeholder="Заголовок статьи" name="title">
         <br><br>
         <textarea name="text" cols="30" rows="10" placeholder="Текст статьи"></textarea>

@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from library.models import Book
+from django.shortcuts import render, redirect
+from .models import Book
 from .forms import PostForm
 
 # Create your views here.
@@ -16,11 +16,11 @@ def all_books(request):
 
 
 
-def book_detail(request, pk):
+def book_detail(request, id):
     
-    book_objs = Book.objects.filter(id=pk) #когда было pk=id не работало
+    books = Book.objects.filter(id=id) #когда было pk=id не работало
     context = {
-        "libitems" : book_objs,
+        "books" : books,
         # "authors" : author_obj,
     }
 
@@ -28,6 +28,39 @@ def book_detail(request, pk):
 
  
 
-def post_new(request):
-    form = PostForm()
-    return render(request, 'library/post_new.html', {'form': form})
+def add_book(request):
+    if request.method == "GET":
+        return render(request, "library/addbook.html")
+    elif request.method == "POST":
+        form = request.POST
+        author = form.get("author")
+        title = form.get("title")
+        content = form.get("content")
+        pages = form.get("pages")
+        date = form.get("date")
+
+        new_book = Book()
+        new_book.title = title
+        new_book.content= content
+        user = request.user
+        new_book.added_by = user
+        new_book.author = author
+        new_book.pages_num = pages
+        new_book.written_date = date
+       
+        new_book.save()
+        return redirect(book_detail, new_book.pk)
+    
+def edit_book(request, id):
+    book = Book.objects.get(id=id)
+
+    if request.method == "POST":
+        book.author = request.POST.get("author")
+        book.content = request.POST.get("content")
+        book.title = request.POST.get("title")
+        book.pages = request.POST.get("pages")
+        book.date = request.POST.get("date")
+        book.save()
+        return redirect(book_detail, id)
+    return render(request, "library/edit_book.html", {"book":book})
+

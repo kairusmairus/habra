@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Добавить статью
+{% endblock %}
+
+{% block content %}
+<br>
+<h3>Добавить статью: </h3>
+<div>
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form|crispy }}
+        
+        {{ form.media }}
+        <button type="submit" class="btn btn-primary" >
+            Save
+        </button>
+    </form>
+</div>
+
+{% endblock %}

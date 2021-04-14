@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    {{author.nik}}
+{% endblock %}
+{% block content %}
+    <h2>{{ author.nik }}</h2>
+    
+        {% if author.photo %}
+            <div>
+                <img src="{{ author.photo.url }}" width="500px">
+            </div>
+            {% endif %}    
+    
+{% endblock %}

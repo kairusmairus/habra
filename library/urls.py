@@ -3,7 +3,9 @@ from . import views
 
 
 urlpatterns = [
-    path("<int:pk>/", views.book_detail, name = "book_detail"),
+    path("<int:id>/", views.book_detail, name = "book_detail"),
     path("", views.all_books, name = "all_books"),
-    path('new/', views.post_new, name='post_new'),
+    path("<int:id>/edit/", views.edit_book, name='edit_book'),
+    path('new/', views.add_book, name='add_book'),
+    
 ]

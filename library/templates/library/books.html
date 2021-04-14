@@ -1,16 +1,21 @@
 {% extends "index.html" %}
 
-{% block content %}
+{% block title %}
+    Habra-книги
+{% endblock %}
 
+{% block content %}
+        <br>
+        <h3>Книги: </h3>
         <div>          
             
         {% for b in booklist %}
 
             <div>  
-                <br>              
-
- <p> <strong> {{b.pk}}.  Автор: {{b.author}} </strong>  Название: {{ b.title }} Язык: {{ b.language }} Изд: {{ b.written_date }} Стр: {{ b.pages_num }}</p>                
-
+                <br>
+                <a href="{% url 'book_detail' b.pk %}"><strong>{{b.pk}}. {{ b.title }}</strong></a> 
+                <p> <strong> Автор:  </strong>{{b.author}} <strong>Изд: </strong>{{ b.written_date }} <strong>Стр: </strong> {{ b.pages_num }} <strong> Язык: </strong>{{ b.language }} </p>                
+                <p><strong>Описание: </strong>{{b.content}}</p>
             </div>
 
         {% endfor %}
@@ -21,6 +26,6 @@
 
 {% block content_sidebar %}
 <br>
-<a href="{% url 'post_new' %}" class="btn btn-light" role="button" aria-disabled="true">Добавить книгу <i class="fa fa-upload" aria-hidden="true"></i></a>
+<a href="{% url 'add_book' %}" class="btn btn-light" role="button" aria-disabled="true">Добавить книгу <i class="fa fa-upload" aria-hidden="true"></i></a>
 
 {% endblock %}

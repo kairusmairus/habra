@@ -1,8 +1,13 @@
 {% extends 'index.html' %}
 {% load static %}
 
+{% block title %}
+    Habra-статьи
+{% endblock %}
+
 {% block content %}
-    <h1>Статьи:</h1>
+<br>
+    <h3>Статьи:</h3>
     <ul>
     {% for article in articles %}
         <a href="{% url 'article' article.id %}"><li>{{ article.title }}</li></a>
@@ -11,6 +16,8 @@
 {% endblock %}
 {% block content_sidebar %}
 <br>
-<a href="{% url 'article-add' %}" class="btn btn-light" role="button" aria-disabled="true">Добавить статью <i class="fa fa-upload" aria-hidden="true"></i></a>
+{% if user.is_authenticated %}
 
+<a href="{% url 'art-add' %}" class="btn btn-light" role="button" aria-disabled="true">Добавить статью <i class="fa fa-upload" aria-hidden="true"></i></a>
+{% endif %}
 {% endblock %}

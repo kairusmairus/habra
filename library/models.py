@@ -20,7 +20,11 @@ class Book(models.Model):
     added_by = models.ForeignKey( to=User,
         on_delete=models.SET_NULL,
         null=True, blank=True,
-        verbose_name="Добавил")  
+        verbose_name="Добавил") 
+
+    class Meta:
+        verbose_name = "Книга"
+        verbose_name_plural = "Книги"     
 
     def __str__(self):
         return self.title 

@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Редактировать книгу
+{% endblock %}
+
+{% block content %}
+<br>
+<h3>Редактировать книгу: </h3>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <input name="author" type="text" placeholder="Автор книги " >
+        <br><br>
+        <input name="title" type="text" placeholder="Название книги " >
+        <br><br>
+        <textarea name="content" cols="30" rows="10" placeholder="Текст статьи"></textarea>
+        <br><br>
+        <input name="pages" type="number" placeholder="Количество страниц " >
+        <br><br>
+        <input name="date" type="date" placeholder="Дата издания " >
+        <br><br>
+        <input name="language" type="text" placeholder="Язык " >
+        <br><br>
+        
+        <button>Добавить</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,8 @@
+1. pip install django-ckeditor
+2. models.py from ckeditor.fields impoort RichTextField
+3. in class Article() - text  =RichTextField(blank=True, null=True)
+4. makemigrations, migrate
+5. settings.py installed-apps - 'ckeditor'
+6. add.html - {{ form.media }} before {{form.as_p}} after P{}csrf
+7. articledetail.html - {{post.text|safe}}
+8. same thing in edit.html

@@ -1,11 +1,16 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import * #импорт из моделей чтобы он знал откуда Article
 from django.contrib.auth.models import User
+from .forms import PostArtForm
+from django.db.models import Q
+from django.utils.translation import gettext as _
+from django.utils.translation import get_language, activate, gettext
+
 # Create your views here.
 def articles(request):
     articles = Article.objects.all() # 
     return render(
-        request, "articles.html", {"articles":articles})
+        request, "articles.html", {"articles":  articles})
     #"article" то как называется в html, article название обхекта  
     # 
 def authors(request):
@@ -39,30 +44,18 @@ def edit_article(request, pk):
         return redirect(article_page, pk)
     return render(request, "update.html", {"article":article})
 
-def add_article(request):
-    if request.method == "GET":
-        return render(request, "add.html")
-    elif request.method == "POST":
-        form = request.POST
-        title = form.get("title")
-        text = form.get("text")
-
-        # new_article = Article(title=title, text=text)
-        # new_article.save()
-
-        new_article = Article()
-        new_article.title = title
-        new_article.text = text
-        user = request.user
-
-        if not Author.objects.filter(user=user).exists():
-            author = Author(user=user, nik=user.username)
-            author.save()
+def add_art(request):
+    if request.method == "POST":
+        form = PostArtForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
             
-        author = user.author
-        new_article.author = author
-        new_article.save()
-        return redirect(article_page, new_article.pk)
+            post.save()
+            return redirect(article_page, post.pk)
+    else:
+        form = PostArtForm()
+    return render(request, 'add_art.html', {'form': form})    
+
 
 def delete_article(request, id):
     article = Article.objects.get(pk=id)
@@ -74,3 +67,14 @@ def hide_article(request, id):
     article.is_active = False
     article.save()
     return redirect(articles) #render(request, "articles.html", {"articles":articles}) 
+
+
+def search(request):
+    word = request.GET.get("searchword") 
+    articles = Article.objects.filter(
+        Q(title__icontains = word) | Q(text__icontains = word), is_active = True)   
+    return render(request, "articles.html", {"articles" : articles})    
+
+def author_page(request, pk):
+    author = Author.objects.get(pk=pk)
+    return render(request, "author.html", {"author" : author})    
