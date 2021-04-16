@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-14 14:54+0600\n"
+"POT-Creation-Date: 2021-04-14 15:33+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,10 +20,46 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
+#: .\templates\index.html:33
+msgid "Home"
+msgstr "Главная"
+
 #: .\templates\index.html:35
 msgid "Authors"
 msgstr "Авторы"
 
-#: .\templates\index.html:72
+#: .\templates\index.html:36
+msgid "Articles"
+msgstr "Статьи"
+
+#: .\templates\index.html:37
+msgid "Books"
+msgstr "Книги"
+
+#: .\templates\index.html:38
+msgid "About us"
+msgstr "О нас"
+
+#: .\templates\index.html:48
+#, fuzzy
+#| msgid "Logout"
+msgid " Logout"
+msgstr "Выйти"
+
+#: .\templates\index.html:50
+#, fuzzy
+#| msgid "Login"
+msgid " Login"
+msgstr "Войти"
+
+#: .\templates\index.html:53
+msgid "keyword"
+msgstr "ключевое слово"
+
+#: .\templates\index.html:55
+msgid "Search"
+msgstr "Найти"
+
+#: .\templates\index.html:73
 msgid "Language"
 msgstr "Язык"

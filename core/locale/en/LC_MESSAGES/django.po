@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-14 14:54+0600\n"
+"POT-Creation-Date: 2021-04-14 15:33+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\templates\index.html:33
+msgid "Home"
+msgstr ""
+
 #: .\templates\index.html:35
 msgid "Authors"
 msgstr ""
 
-#: .\templates\index.html:72
+#: .\templates\index.html:36
+msgid "Articles"
+msgstr ""
+
+#: .\templates\index.html:37
+msgid "Books"
+msgstr ""
+
+#: .\templates\index.html:38
+msgid "About us"
+msgstr ""
+
+#: .\templates\index.html:48
+msgid " Logout"
+msgstr ""
+
+#: .\templates\index.html:50
+msgid " Login"
+msgstr ""
+
+#: .\templates\index.html:53
+msgid "keyword"
+msgstr ""
+
+#: .\templates\index.html:55
+msgid "Search"
+msgstr ""
+
+#: .\templates\index.html:73
 msgid "Language"
 msgstr ""

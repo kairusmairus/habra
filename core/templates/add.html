@@ -1,5 +1,4 @@
 {% extends 'index.html' %}
-
 {% block title %}
     Добавить статью
 {% endblock %}
@@ -7,6 +6,8 @@
 {% block content %}
 <br>
 <h3>Добавить статью: </h3>
+
+
 <div>
     <form method="POST">
         {% csrf_token %}

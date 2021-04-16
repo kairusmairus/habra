@@ -2,10 +2,12 @@
 *.log
 *.pot
 *.pyc
+*`
 __pycache__
 db.sqlite3
-media
-
+/media
+/static
+.DB_Store
 # Backup files # 
 *.bak 
 
@@ -81,7 +83,7 @@ celerybeat-schedule.*
 .habr_env
 env/ 
 venv/ 
-habr_env/
+habr_env
 ENV/ 
 env.bak/ 
 venv.bak/ 

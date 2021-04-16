@@ -1,20 +1,26 @@
 {% extends 'index.html' %}
+{% load crispy_forms_tags %}
 {% block title %}
     Редактировать статью
 {% endblock %}
 
-
 {% block content %}
+<br>
     <div><a href="{% url 'article' article.pk %}">Назад</a></div>
     <br>
     <h3>Редактировать статью: </h3>
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="title" value="{{ article.title }}">
+    <div>
+        <form method="POST" class="form-group">
+        {% csrf_token %} 
+        {{ form|crispy }}  
+        {{ form.media }} 
+        {{ form.as_p }}     
+        <input class="form-control" type="text" name="title" value="{{ article.title }}">
         <br><br>
-        <textarea name="text" cols="30" rows="10">{{ article.text }}</textarea>
+        <textarea class="form-control" name="text" rows="10">{{ article.text }}</textarea>
         <br><br>
-        <button>Сохранить изменения</button>
+        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
     </form>
+</div> 
 
 {% endblock %}

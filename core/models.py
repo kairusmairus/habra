@@ -7,6 +7,7 @@ from ckeditor.fields import RichTextField
 class Article(models.Model):
     title = models.CharField(max_length=255)
     text = RichTextField(blank=True, null=True)
+    
     author = models.ForeignKey(
         to="Author",
         on_delete=models.SET_NULL,
@@ -25,7 +26,7 @@ class Article(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
     picture = models.ImageField(
-        upload_to="images",
+        upload_to="images/",
         null=True, blank=True,
         verbose_name="Картинка статьи"    
     )

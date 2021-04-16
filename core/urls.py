@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings # for static files
+from django.conf.urls.static import static
 
 #app_name = 'core'  --if add this all crashes - WHY???
 
