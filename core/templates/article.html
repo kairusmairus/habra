@@ -14,8 +14,8 @@
     <p>
         Автор:
         <ul>
-            <li>Псевдоним - {{ article.author.nik }}</li>
-            <li>Пользователь - {{ article.author.user.username }}</li>
+            <li>{% trans "Author: " %} - {{ article.author.nik }}</li>
+            
         </ul>
         {% if article.picture %}
         <img src="{{ article.picture.url }}" width="400px">
